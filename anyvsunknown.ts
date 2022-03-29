@@ -3,10 +3,10 @@
    console.log(param.sno)
 }*/
 
-function processanything(param:any):void{
+function processanything(param:unknown):void{
     // console.log(param)
     //console.log(param)
-    console.log(param.name)
+    console.log(param)
     console.log(param)
  }
 
