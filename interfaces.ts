@@ -22,3 +22,5 @@ t.perform()
 
 var p:Activity =new Star();
 p.doIt()
+
+
