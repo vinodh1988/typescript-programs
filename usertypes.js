@@ -1,3 +1,13 @@
+/*interface person{
+    sno:number;
+    name: string;
+    city:string;
+}/*
+class person{
+    sno:number;
+    name:string;
+    city:string;
+}*/
 function process(obj) {
     console.log(obj.sno);
     console.log(obj.name);
