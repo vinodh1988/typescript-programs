@@ -1,4 +1,5 @@
-function  Enhancer<T extends { new (...args: any[]): {} }>(constructor: T) {
+function  Enhancer<T extends { new (...args: any[]): {} }>
+(constructor: T) {
     return class extends constructor {
         metaInfo = " Addition info";
         print=function(){
@@ -7,6 +8,41 @@ function  Enhancer<T extends { new (...args: any[]): {} }>(constructor: T) {
     };
   }
 
+  function  More<T extends { new (...args: any[]): {} }>
+(constructor: T) {
+    return class extends constructor {
+        extra = " Extra info";
+        more=function(){
+            console.log("Added Feature")
+        }
+    };
+  }
+  
+  type component=
+  {
+      selector: string,
+      template: string,
+      style:string
+  }
+
+function DecWithArgs(param:component){
+ return  function<T extends { new (...args: any[]): {} }>
+  (constructor: T) {
+      return class extends constructor {
+          component_properties = param
+          selector = param.selector
+      };
+    }
+}
+
+  @DecWithArgs(
+      {
+          selector: "app-bar",
+          template: "html",
+          style: "css"
+      }
+  )
+  @More
   @Enhancer
   class Temp{
       a:number
